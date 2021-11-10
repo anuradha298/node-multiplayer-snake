@@ -6,7 +6,7 @@ node {
       }     
       stage('Build image') {         
        
-            app = docker.build("298184/test")    
+            sh 'docker --version'    
        }     
       stage('Test image') {           
             app.inside {            
