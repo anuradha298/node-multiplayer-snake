@@ -1,22 +1,17 @@
-node('master'){  
-    agent any
-    def app
-    stage('Cloning Git') {
-        /* Let's make sure we have the repository cloned to our workspace */
-       checkout scm
-    }  
-    
-   
-
-    
-    stage('Build-and-Tag') {
-    /* This builds the actual image; synonymous to
-         * docker build on the command line */
-        sh 'docker --version'
-        echo "Image build successfully"
-    }
-    
-    
-    
+node {    
+      def app     
+      stage('Clone repository') {               
+             
+            checkout scm    
+      }     
+      stage('Build image') {         
+       
+            app = docker.build("298184/test")    
+       }     
+      stage('Test image') {           
+            app.inside {            
+             
+             sh 'echo "Tests passed"'        
+            }    
+        }     
 }
-    
