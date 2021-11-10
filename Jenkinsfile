@@ -1,7 +1,5 @@
 node('master'){  
-    environment {
-  DOCKER = credentials ('Docker_credentials')
- }
+    agent any
     def app
     stage('Cloning Git') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -14,7 +12,7 @@ node('master'){
     stage('Build-and-Tag') {
     /* This builds the actual image; synonymous to
          * docker build on the command line */
-        app = docker.build("2981984/snake")
+        sh 'docker --version'
         echo "Image build successfully"
     }
     
