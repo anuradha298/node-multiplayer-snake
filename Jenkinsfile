@@ -1,5 +1,6 @@
 node {    
       def app     
+      environment{ PATH = "/usr/local/bin:$PATH” }
       stage('Clone repository') {               
              
             checkout scm    
