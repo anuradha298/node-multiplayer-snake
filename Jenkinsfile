@@ -23,7 +23,7 @@ node {
 //          sh "docker-compose up -d"	
 //       }
       stage('Synk scan') {
-            pwd
+            sh 'pwd'
             sh 'snyk test --json | snyk-to-html -o results.html'
       }
 }
