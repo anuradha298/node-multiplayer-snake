@@ -25,5 +25,6 @@ node {
       stage('Synk scan') {
             sh 'pwd'
             sh 'snyk test --json | snyk-to-html -o results.html'
+            sh 'mail -s "synk report" user@example.com -A results.html'
       }
 }
