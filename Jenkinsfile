@@ -26,7 +26,7 @@ node {
             cd ${WORKSPACE}
             echo “snyk test and snyk monitor” > snyk.sh
             sh 'chmod +x snyk.sh'
-            /bin/bash snyk.sh || true
+            sh '/bin/bash snyk.sh || true'
             snyk test --json | snyk-to-html -o results.html
       }
 }
