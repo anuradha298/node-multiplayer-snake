@@ -7,12 +7,8 @@ node {
       }     
       stage('Build image') {         
        
-            sh 'docker --version'    
+            sh 'docker --version'   
+            app = docker.build("2981984/snake")
        }     
-      stage('Test image') {           
-            app.inside {            
-             
-             sh 'echo "Tests passed"'        
-            }    
-        }     
+         
 }
