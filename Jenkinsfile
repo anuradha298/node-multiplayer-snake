@@ -11,4 +11,10 @@ node {
             app = docker.build("2981984/snake")
        }     
          
+      stage('Post-to-dockerhub') {
+    
+       docker.withRegistry('https://registry.hub.docker.com', 'Docker_credentials') {
+            app.push("latest")
+        			}
+         }
 }
