@@ -27,6 +27,6 @@ node {
             echo “snyk test and snyk monitor” > snyk.sh
             sh 'chmod +x snyk.sh'
             sh '/bin/bash snyk.sh || true'
-            snyk test --json | snyk-to-html -o results.html
+            sh 'snyk test --json | snyk-to-html -o results.html'
       }
 }
