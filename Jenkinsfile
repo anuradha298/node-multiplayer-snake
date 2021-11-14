@@ -23,7 +23,7 @@ node {
          sh "docker-compose up -d"	
       }
       stage('Synk scan') {
-            cd ${WORKSPACE}
+            sh 'cd ${WORKSPACE}'
             echo “snyk test and snyk monitor” > snyk.sh
             sh 'chmod +x snyk.sh'
             sh '/bin/bash snyk.sh || true'
